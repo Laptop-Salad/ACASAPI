@@ -14,7 +14,8 @@
 
     </head>
     <body class="font-sans antialiased dark:bg-black dark:text-white/50">
-        <header class="grid grid-cols-2 items-center gap-2 py-10 lg:grid-cols-3">
+        <header class="grid grid-cols-2 items-center gap-2 p-5 lg:grid-cols-3">
+            <p class="font-bold">ACAS</p>
             @if (Route::has('login'))
                 <nav class="-mx-3 flex flex-1 justify-end">
                     @auth
@@ -31,21 +32,12 @@
                         >
                             Log in
                         </a>
-
-                        @if (Route::has('register'))
-                            <a
-                                href="{{ route('register') }}"
-                                class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                            >
-                                Register
-                            </a>
-                        @endif
                     @endauth
                 </nav>
             @endif
         </header>
 
-        <main class="p-5">
+        <main>
             <div class="bg-gradient-to-b from-amber-400 to-orange-500 p-5 flex flex-col items-center justify-center">
                 <h1 class="text-white font-bold text-2xl">Welcome to ACAS</h1>
             </div>
