@@ -1,9 +1,25 @@
-@props(['label', 'name', 'model','required' => true, 'type' => 'text'])
+@props([
+    'label',
+    'name',
+    'model',
+    'required' => false,
+    'type' => 'text',
+    'icon' => ''
+])
 
-<div>
-    <div class="bg-slate-200 flex p-2 my-2 rounded-sm">
-        <label class="text-gray-500 me-1" for="{{$label}}">{{$name}} {{$required ? "*" : "" }}:</label>
+<div {{ $attributes }}>
+    <div class="border-2 border-pine flex p-2 rounded-md">
+        <label class="me-1 font-semibold" for="{{$name}}">
+            <i class="{{$icon}}"></i>
+            {{$label}} {{$required ? "*" : "" }}:
+        </label>
 
-        <input class="bg-transparent outline-none" type="{{$type}}" id="{{$label}}" wire:model="{{$model}}" required="{{$required}}">
+        <input
+            autocomplete="off"
+            class="bg-transparent outline-none"
+            type="{{$type}}"
+            id="{{$name}}"
+            wire:model="{{$model}}"
+            @if ($required) required @endif >
     </div>
 </div>

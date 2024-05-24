@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Department;
+use App\Models\School;
 use App\Models\Student;
 use App\Models\Teacher;
 use Carbon\Carbon;
@@ -19,59 +20,76 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+      // School
+        $school_id = DB::table('schools')->insertGetId([
+            'name' => 'Bob Academy'
+        ]);
+
       // Departments
         // Maths
         DB::table('departments')->insert([
-            'name' => 'Maths'
+            'name' => 'Maths',
+            'school_id' => $school_id,
         ]);
 
         Teacher::factory()->maths_department()->create([
-            'special_role' => 'Head of Department'
+            'special_role' => 'Head of Department',
+            'school_id' => $school_id,
         ]);
 
         // Science
         DB::table('departments')->insert([
-            'name' => 'Science'
+            'name' => 'Science',
+            'school_id' => $school_id,
         ]);
 
         Teacher::factory()->science_department()->create([
-            'special_role' => 'Head of Department'
+            'special_role' => 'Head of Department',
+            'school_id' => $school_id,
         ]);
 
         // Art
         DB::table('departments')->insert([
-            'name' => 'Art'
+            'name' => 'Art',
+            'school_id' => $school_id,
         ]);
 
         Teacher::factory()->art_department()->create([
-            'special_role' => 'Head of Department'
+            'special_role' => 'Head of Department',
+            'school_id' => $school_id,
         ]);
 
         // PE
         DB::table('departments')->insert([
-            'name' => 'PE'
+            'name' => 'PE',
+            'school_id' => $school_id,
         ]);
 
         Teacher::factory()->pe_department()->create([
-            'special_role' => 'Head of Department'
+            'special_role' => 'Head of Department',
+            'school_id' => $school_id,
         ]);
 
         // Computer Science
         DB::table('departments')->insert([
-            'name' => 'Computer Science'
+            'name' => 'Computer Science',
+            'school_id' => $school_id,
         ]);
 
         Teacher::factory()->cs_department()->create([
-            'special_role' => 'Head of Department'
+            'special_role' => 'Head of Department',
+            'school_id' => $school_id,
         ]);
 
         // Social Studies
         DB::table('departments')->insert([
-            'name' => 'Social Studies'
+            'name' => 'Social Studies',
+            'school_id' => $school_id,
         ]);
 
         Teacher::factory()->socials_department()->create([
-            'special_role' => 'Head of Department'
+            'special_role' => 'Head of Department',
+            'school_id' => $school_id,
         ]);
 
         // Teachers x 24 from 6 departments
@@ -92,8 +110,9 @@ class DatabaseSeeder extends Seeder
                 $department = Department::where('name', 'Social Studies')->first();
             }
 
-            Teacher::factory()->art_department()->create([
-                'department_id' => $department->id
+            Teacher::factory()->create([
+                'department_id' => $department->id,
+                'school_id' => $school_id,
             ]);
 
             $teachers++;
@@ -104,7 +123,8 @@ class DatabaseSeeder extends Seeder
 
         while ($support < 4) {
             Teacher::factory()->create([
-                'special_role' => 'Support'
+                'special_role' => 'Support',
+                'school_id' => $school_id,
             ]);
 
             $support++;
@@ -112,49 +132,66 @@ class DatabaseSeeder extends Seeder
 
         // Vice principal x 1
         $vice_principal = Teacher::factory()->create([
-            'special_role' => 'Vice Principal'
+            'special_role' => 'Vice Principal',
+            'school_id' => $school_id,
         ]);
 
         // Principal x 1
         Teacher::factory()->create([
-            'special_role' => 'Principal'
+            'special_role' => 'Principal',
+            'school_id' => $school_id,
         ]);
 
         // 5 Houses
         $house_crab = DB::table('houses')->insert([
             'name' => 'Crabs',
+            'school_id' => $school_id,
         ]);
 
         $house_gopher = DB::table('houses')->insert([
             'name' => 'Gophers',
+            'school_id' => $school_id,
         ]);
 
         $house_rats = DB::table('houses')->insert([
             'name' => 'Rats',
+            'school_id' => $school_id,
         ]);
 
         $house_elephants = DB::table('houses')->insert([
             'name' => 'Elephants',
+            'school_id' => $school_id,
         ]);
 
         $house_snakes = DB::table('houses')->insert([
             'name' => 'Snakes',
+            'school_id' => $school_id,
         ]);
 
-        // Students x500
+        // Students x100
         $students = 0;
 
         while ($students < 100) {
             if ($students < 20) {
-                $student = Student::factory()->house_crabs()->create();
+                $student = Student::factory()->house_crabs()->create([
+                    'school_id' => $school_id,
+                ]);
             } else if ($students < 40) {
-                $student = Student::factory()->house_gophers()->create();
+                $student = Student::factory()->house_gophers()->create([
+                    'school_id' => $school_id,
+                ]);
             } else if ($students < 60) {
-                $student = Student::factory()->house_rats()->create();
+                $student = Student::factory()->house_rats()->create([
+                    'school_id' => $school_id,
+                ]);
             } else if ($students < 80) {
-                $student = Student::factory()->house_snakes()->create();
+                $student = Student::factory()->house_snakes()->create([
+                    'school_id' => $school_id,
+                ]);
             } else {
-                $student = Student::factory()->house_elephants()->create();
+                $student = Student::factory()->house_elephants()->create([
+                    'school_id' => $school_id,
+                ]);
             }
 
             DB::table('card_entries')->insert([

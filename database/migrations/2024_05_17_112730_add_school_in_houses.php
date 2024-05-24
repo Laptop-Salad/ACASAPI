@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('students', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->index('id');
-            $table->string('name');
-            $table->timestamps();
+        Schema::table('houses', function (Blueprint $table) {
+            $table->foreignUuid('school_id')->references('id')->on('schools')->cascadeOnUpdate()->cascadeOnDelete();
         });
     }
 
@@ -24,6 +21,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('students');
+        Schema::table('houses', function (Blueprint $table) {
+            $table->dropForeignIdFor(\App\Models\School::class);
+            $table->dropColumn('school_id');
+        });
     }
 };

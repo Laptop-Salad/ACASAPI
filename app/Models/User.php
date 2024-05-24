@@ -2,12 +2,19 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
+    use HasUuids;
     use HasApiTokens;
+
+    protected $primaryKey = 'id';
+    protected $keyType = 'uuid';
+    public $incrementing = false;
 
     /**
      * The attributes that are mass assignable.
@@ -38,8 +45,13 @@ class User extends Authenticatable
     protected function casts(): array
     {
         return [
+            'id' => 'string',
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function schools() : BelongsToMany {
+        return $this->belongsToMany(School::class, 'school_users');
     }
 }

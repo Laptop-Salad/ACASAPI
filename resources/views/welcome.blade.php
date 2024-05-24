@@ -4,42 +4,22 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>ACAS API</title>
+        <title>ASMS</title>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+        {{-- Font awesome --}}
+        <script src="https://kit.fontawesome.com/c5ef5dbab6.js" crossorigin="anonymous"></script>
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     </head>
-    <body class="font-sans antialiased dark:bg-black dark:text-white/50">
-        <header class="grid grid-cols-2 items-center gap-2 p-5 lg:grid-cols-3">
-            <p class="font-bold">ACAS</p>
-            @if (Route::has('login'))
-                <nav class="-mx-3 flex flex-1 justify-end">
-                    @auth
-                        <a
-                            href="{{ url('/dashboard') }}"
-                            class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                        >
-                            Dashboard
-                        </a>
-                    @else
-                        <a
-                            href="{{ route('login') }}"
-                            class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                        >
-                            Log in
-                        </a>
-                    @endauth
-                </nav>
-            @endif
-        </header>
+    <body class="font-sans antialiased bg-off-white text-pine">
+        <x-navigation />
 
         <main>
-            <div class="bg-gradient-to-b from-amber-400 to-orange-500 p-5 flex flex-col items-center justify-center">
-                <h1 class="text-white font-bold text-2xl">Welcome to ACAS</h1>
+            <div class="p-5 m-5 flex items-center justify-center text-center h-[80vh]">
+                <div>
+                    <h1 class="font-bold my-2 text-4xl">Academic Score Management System</h1>
+                </div>
             </div>
         </main>
     </body>

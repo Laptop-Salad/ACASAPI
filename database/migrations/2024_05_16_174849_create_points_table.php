@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('points', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\Student::class)->constrained()->cascadeOnUpdate()->cascadeOnDelete();
-            $table->foreignIdFor(\App\Models\Teacher::class)->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignUuid('student_id')->references('id')->on('students')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignUuid('teacher_id')->references('id')->on('teachers')->cascadeOnUpdate()->cascadeOnDelete();
             $table->integer('points');
             $table->string('type');
             $table->string('comment');

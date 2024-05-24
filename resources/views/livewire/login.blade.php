@@ -1,6 +1,6 @@
-<div class="grid grid-rows-2 h-screen">
-    <div class="bg-gradient-to-b from-amber-400 to-orange-500 p-5 flex flex-col items-center justify-center">
-        <h1 class="text-white font-bold text-2xl">Welcome to ACAS</h1>
+<div class="grid grid-rows-2 h-screen bg-orange-200">
+    <div class="p-5 flex flex-col items-center justify-center">
+        <h1 class="font-bold text-2xl">Login to ASMS</h1>
     </div>
 
     <div class="p-5 flex flex-col items-center">

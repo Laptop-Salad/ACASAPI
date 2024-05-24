@@ -19,7 +19,7 @@ class Login extends Component
 
         if (Auth::attempt($credentials)) {
             // Authentication was successful
-            return redirect()->intended('/dashboard');
+            return redirect('dashboard');
         } else {
             // Authentication failed
             $this->addError('error', 'Invalid email or password.');

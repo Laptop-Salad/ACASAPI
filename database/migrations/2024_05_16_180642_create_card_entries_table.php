@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('card_entries', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\Student::class)->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignUuid('student_id')->references('id')->on('students')->cascadeOnUpdate()->cascadeOnDelete();
             $table->dateTime('time');
             $table->timestamps();
         });

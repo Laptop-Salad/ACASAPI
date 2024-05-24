@@ -6,7 +6,15 @@ export default {
       './resources/views/**/*.blade.php',
   ],
   theme: {
-    extend: {},
+    extend: {
+        colors: {
+            'off-white' : '#F5EFE6',
+            'beige' : '#E8DFCA',
+            'sage' : '#4F6F52',
+            'pine' : '#1A4D2E',
+
+        }
+    },
   },
   plugins: [],
 }
