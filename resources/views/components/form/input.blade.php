@@ -8,12 +8,14 @@
 ])
 
 <div {{ $attributes }}>
-    <div class="border-2 border-pine flex p-2 rounded-md">
-        <label class="me-1 font-semibold" for="{{$name}}">
+    <div class="border-2 border-pine p-2 rounded-t-md text-off-white bg-pine">
+        <label for="{{$name}}">
             <i class="{{$icon}}"></i>
-            {{$label}} {{$required ? "*" : "" }}:
+            {{$label}} {{$required ? "*" : "" }}
         </label>
+    </div>
 
+    <div class="border-2 border-pine p-2 rounded-b-md">
         <input
             autocomplete="off"
             class="bg-transparent outline-none"

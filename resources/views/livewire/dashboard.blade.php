@@ -24,7 +24,7 @@
             Create New School
         </x-btn>
 
-        <section class="w-1/3">
+        <section class="md:w-1/3">
             <h2>You have access to {{ $this->schools->count() }} schools</h2>
 
             @foreach($this->schools as $school)

@@ -2,10 +2,6 @@
 
 namespace App\Livewire\School;
 
-use App\Livewire\Forms\DepartmentForm;
-use App\Livewire\Forms\HouseForm;
-use App\Livewire\Forms\StudentForm;
-use App\Livewire\Forms\TeacherForm;
 use App\Models\Department;
 use App\Models\House;
 use App\Models\School;
@@ -17,36 +13,26 @@ class Overview extends Component
     #[Locked]
     public School $school;
 
-    public DepartmentForm $department_form;
-    public TeacherForm $teacher_form;
-    public HouseForm $house_form;
-    public StudentForm $student_form;
+    public $current_tab = "departments";
 
-    public function saveDepartment() {
-        $this->department_form->school_id = $this->school->id;
-        $this->department_form->save();
+    function getDepartmentsProperty() {
+        return $this->school->departments;
     }
 
-    public function saveTeacher() {
-        $this->teacher_form->school_id = $this->school->id;
-        $this->teacher_form->save();
+    function getTeachersProperty() {
+        return $this->school->teachers;
     }
 
-    public function saveHouse() {
-        $this->house_form->school_id = $this->school->id;
-        $this->house_form->save();
-    }
-    public function saveStudent() {
-        $this->student_form->school_id = $this->school->id;
-        $this->student_form->save();
+    function getHousesProperty() {
+        return $this->school->houses;
     }
 
-    public function getDepartmentsProperty() {
-        return Department::where('school_id', $this->school->id)->get()->sortBy('name');
+    function getStudentsProperty() {
+        return $this->school->students;
     }
 
-    public function getHousesProperty() {
-        return House::where('school_id', $this->school->id)->get()->sortBy('name');
+    function changeTab($tab) {
+        $this->current_tab = $tab;
     }
 
     public function render()

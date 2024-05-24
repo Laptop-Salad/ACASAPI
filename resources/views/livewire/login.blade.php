@@ -1,12 +1,12 @@
-<div class="grid grid-rows-2 h-screen bg-orange-200">
+<div class="grid grid-rows-2 h-screen bg-off-white text-pine">
     <div class="p-5 flex flex-col items-center justify-center">
         <h1 class="font-bold text-2xl">Login to ASMS</h1>
     </div>
 
     <div class="p-5 flex flex-col items-center">
         <form wire:submit="submit" class="md:w-1/3">
-            <x-form.input type="email" model="email" label="email" name="Email" required="true"/>
-            <x-form.input type="password" model="password" label="password" name="Password" required="true" />
+            <x-form.input type="email" model="email" label="Email" name="Email" required="true"/>
+            <x-form.input class="my-2" type="password" model="password" label="Password" name="Password" required="true" />
 
             <div class="text-red-500">
                 @error('error') <span>{{ $message }}</span> @enderror
