@@ -4,6 +4,12 @@
 
     @if (Route::has('login'))
         <nav class="-mx-3 flex items-center justify-end">
+            <a
+                href="{{ url('/api-docs') }}"
+                class="rounded-md px-3 py-2 ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"
+            >
+                API Docs
+            </a>
             @auth
                 <a
                     href="{{ url('/dashboard') }}"
