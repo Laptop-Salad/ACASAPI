@@ -21,6 +21,12 @@
                 </a>
             @else
                 <a
+                    href="{{ route('sign-up') }}"
+                    class="rounded-md px-3 py-2 ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"
+                >
+                    Sign Up
+                </a>
+                <a
                     href="{{ route('login') }}"
                     class="rounded-md px-3 py-2 ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"
                 >

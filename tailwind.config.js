@@ -13,6 +13,9 @@ export default {
             'sage' : '#4F6F52',
             'pine' : '#1A4D2E',
 
+        },
+        gridTemplateColumns: {
+            'docs-navbar': '1fr 4fr',
         }
     },
   },

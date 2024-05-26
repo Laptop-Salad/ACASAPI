@@ -15,6 +15,17 @@
     {{-- Font awesome --}}
     <script src="https://kit.fontawesome.com/c5ef5dbab6.js" crossorigin="anonymous"></script>
 
+    {{-- Code block element --}}
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/styles/vs.min.css"
+    />
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@heppokofrontend/html-code-block-element/lib/html-code-block-element.common.min.js"
+        defer
+    ></script>
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <title>ASMS</title>

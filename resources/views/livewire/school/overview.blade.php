@@ -1,17 +1,17 @@
 <div class="bg-off-white text-pine min-h-screen">
-    <x-navigation />
+    <x-navigation.navigation />
 
     <div class="p-5">
         <h1 class="text-4xl font-bold">{{ $school->name }}</h1>
-        <x-side-menu>
-            <x-x-side-menu-link :href="route('school', $school)" icon="fa-solid fa-school" :active="true">
+        <x-menus.side-menu>
+            <x-menus.side-menu-link :href="route('school', $school)" icon="fa-solid fa-school" :active="true">
                 Overview
-            </x-x-side-menu-link>
+            </x-menus.side-menu-link>
 
-            <x-x-side-menu-link :href="route('school.manage', $school)" icon="fa-solid fa-gear">
+            <x-menus.side-menu-link :href="route('school.manage', $school)" icon="fa-solid fa-gear">
                 Manage
-            </x-x-side-menu-link>
-        </x-side-menu>
+            </x-menus.side-menu-link>
+        </x-menus.side-menu>
 
         <div class="my-10 flex flex-col md:flex-row md:space-x-4 md:space-y-0 space-y-4">
             <a

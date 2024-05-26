@@ -1,5 +1,5 @@
 <div>
-    <x-modal class="p-2" x-show="$wire.show_create_school">
+    <x-modals.modal class="p-2" x-show="$wire.show_create_school">
         <h2 class="font-bold text-xl">Create new School</h2>
 
         <form wire:submit="createSchool">
@@ -12,5 +12,5 @@
             </x-btn>
             <x-btn class="text-green-600 hover:bg-green-200 border-green-600 my-5" type="submit">Create</x-btn>
         </form>
-    </x-modal>
+    </x-modals.modal>
 </div>

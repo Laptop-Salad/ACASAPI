@@ -10,7 +10,7 @@ class TeacherForm extends Form
 {
     #[Validate(['required', 'exists:schools,id'])]
     public $school_id;
-    #[Validate(['required', 'exists:departments,id'])]
+    #[Validate(['nullable', 'exists:departments,id'])]
     public $department_id;
 
     #[Validate(['required', 'string'])]

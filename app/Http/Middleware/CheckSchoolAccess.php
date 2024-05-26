@@ -13,7 +13,9 @@ class CheckSchoolAccess
         $school = $request->route('school');
         $user = auth()->user();
         $access = SchoolUser::where('user_id', $user->id)
-            ->where('school_id', $school->id)->first();
+            ->where('school_id', $school->id);
+
+        $access = $access->first();
 
         if (!$access) {
             return redirect('dashboard');

@@ -1,5 +1,5 @@
 <div class="bg-off-white text-pine min-h-screen">
-    <x-navigation />
+    <x-navigation.navigation />
 
     <div class="p-5">
         <h1 class="text-3xl">Hello {{ auth()->user()->name }}</h1>
@@ -9,7 +9,7 @@
         @endif
 
         @if (isset($this->token_created))
-            <div class="my-10 border border-green-600 bg-green-50 p-2 md:w-1/3">
+            <div class="my-10 border border-green-600 bg-green-50 p-2">
                 <div class="border-b border-green-600 mb-2">
                     <p class="my-2">Token generated Successfully!</p>
                 </div>
@@ -39,6 +39,6 @@
             @endforeach
         </section>
 
-        <x-create-school-modal />
+       <x-modals.create-school-modal />
     </div>
 </div>
