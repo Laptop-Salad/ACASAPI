@@ -3,46 +3,27 @@
 
     <div class="p-5">
         <h1 class="text-4xl font-bold">{{ $school->name }}</h1>
-        <x-menus.side-menu>
-            <x-menus.side-menu-link :href="route('school', $school)" icon="fa-solid fa-school" :active="true">
-                Overview
-            </x-menus.side-menu-link>
 
-            <x-menus.side-menu-link :href="route('school.manage', $school)" icon="fa-solid fa-gear">
-                Manage
-            </x-menus.side-menu-link>
-        </x-menus.side-menu>
+        <x-school.menu active="overview" :$school />
 
-        <div class="my-10 flex flex-col md:flex-row md:space-x-4 md:space-y-0 space-y-4">
-            <a
-                wire:click="changeTab('departments')"
-                class="{{ $this->current_tab == "departments" ? "bg-pine text-off-white" : ''}}
-                border-2 border-pine hover:bg-pine hover:text-off-white hover:cursor-pointer p-5 font-bold text-xl rounded-md">
+        <x-tabs>
+            <x-tab wire:click="changeTab('departments')" this_tab="departments" :current_tab="$this->current_tab">
                 {{ $school->departments->count() }}
                 Departments
-            </a>
-            <a
-                wire:click="changeTab('houses')"
-                class="{{ $this->current_tab == "houses" ? "bg-pine text-off-white" : ''}}
-                border-2 border-pine hover:bg-pine hover:text-off-white hover:cursor-pointer p-5 font-bold text-xl rounded-md">
+            </x-tab>
+            <x-tab wire:click="changeTab('houses')" this_tab="houses" :current_tab="$this->current_tab">
                 {{ $school->houses->count() }}
                 Houses
-            </a>
-            <a
-                wire:click="changeTab('teachers')"
-                class="{{ $this->current_tab == "teachers" ? "bg-pine text-off-white" : ''}}
-                border-2 border-pine hover:bg-pine hover:text-off-white hover:cursor-pointer p-5 font-bold text-xl rounded-md">
-                {{ $school->teachers->count() }}
+            </x-tab>
+            <x-tab wire:click="changeTab('teachers')" this_tab="teachers" :current_tab="$this->current_tab">
+                {{ $school->houses->count() }}
                 Teachers
-            </a>
-            <a
-                wire:click="changeTab('students')"
-                class="{{ $this->current_tab == "students" ? "bg-pine text-off-white" : ''}}
-                border-2 border-pine hover:bg-pine hover:text-off-white hover:cursor-pointer p-5 font-bold text-xl rounded-md">
-                {{ $school->students->count() }}
+            </x-tab>
+            <x-tab wire:click="changeTab('students')" this_tab="students" :current_tab="$this->current_tab">
+                {{ $school->houses->count() }}
                 Students
-            </a>
-        </div>
+            </x-tab>
+        </x-tabs>
 
         @switch($this->current_tab)
             @case("departments")
@@ -111,7 +92,12 @@
                         <tbody>
                         @foreach($this->students as $student)
                             <tr class="border-b-2 border-pine/50">
-                                <td class="p-2 font-semibold">{{$student->name}}</td>
+                                <td class="p-2 font-semibold">
+                                    <a class="text-blue-500 font-semibold"
+                                       href="{{route('school.student.points', [$this->school, $student])}}">
+                                        {{$student->name}}
+                                    </a>
+                                </td>
                                 <td class="p-2 font-semibold">{{$student->house->name}}</td>
                             </tr>
                         @endforeach

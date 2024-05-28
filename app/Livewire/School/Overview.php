@@ -6,6 +6,7 @@ use App\Models\Department;
 use App\Models\House;
 use App\Models\School;
 use Livewire\Attributes\Locked;
+use Livewire\Attributes\Url;
 use Livewire\Component;
 
 class Overview extends Component
@@ -13,6 +14,7 @@ class Overview extends Component
     #[Locked]
     public School $school;
 
+    #[Url]
     public $current_tab = "departments";
 
     function getDepartmentsProperty() {

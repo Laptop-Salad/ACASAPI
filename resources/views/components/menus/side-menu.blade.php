@@ -1,5 +1,5 @@
 <div class="flex justify-end" x-data="{menuOpen : false}">
-    <x-btn x-on:click="menuOpen = true"><i class="fa-solid fa-bars"></i></x-btn>
+    <x-btn class="border-none" x-on:click="menuOpen = true"><i class="fa-solid fa-ellipsis-vertical"></i></x-btn>
 
     <div x-cloak
          x-show="menuOpen"
@@ -11,7 +11,7 @@
          class="flex flex-col min-h-[50vh] space-y-4 bg-pine text-off-white drop-shadow-2xl rounded-md absolute z-20 p-5 w-60">
 
         <div class="flex justify-end mb-2">
-            <x-btn x-on:click="menuOpen = false" :inverse="true"><i class="fa-solid fa-bars"></i></x-btn>
+            <x-btn class="border-none" x-on:click="menuOpen = false" :inverse="true"><i class="fa-solid fa-ellipsis-vertical"></i></x-btn>
         </div>
 
         <h3 class="my-4 font-semibold text-xl text-center">Menu</h3>

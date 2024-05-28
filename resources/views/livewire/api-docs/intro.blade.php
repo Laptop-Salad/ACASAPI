@@ -61,7 +61,7 @@
 
                     <p>
                         Welcome to the ASMS (Academic Score Management System) API documentation. If you follow the instructions and code
-                        examples below you can have your own school setup and start making API requests in seconds!
+                        examples below you can have your own school setup and start making API requests in minutes!
                     </p>
 
                     <p>

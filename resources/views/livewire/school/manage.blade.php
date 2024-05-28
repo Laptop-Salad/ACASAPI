@@ -3,15 +3,7 @@
 
     <div class="p-5">
         <h1 class="text-2xl font-bold">Manage {{ $school->name }}</h1>
-        <x-menus.side-menu>
-            <x-menus.side-menu-link :href="route('school', $school)" icon="fa-solid fa-school">
-                Overview
-            </x-menus.side-menu-link>
-
-            <x-menus.side-menu-link :href="route('school.manage', $school)" icon="fa-solid fa-gear" :active="true">
-                Manage
-            </x-menus.side-menu-link>
-        </x-menus.side-menu>
+        <x-school.menu active="manage" :$school />
 
         <div class="mt-4">
             <div>

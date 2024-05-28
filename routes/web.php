@@ -15,7 +15,12 @@ Route::prefix('api-docs')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', \App\Livewire\Dashboard::class)->name('dashboard');
-    Route::get('/schools/{school}', \App\Livewire\School\Overview::class)->name('school');
-    Route::get('/schools/{school}/manage', \App\Livewire\School\Manage::class)->name('school.manage');
+
+    Route::prefix('schools/{school}/')->group(function () {
+        Route::get('', \App\Livewire\School\Overview::class)->name('school');
+        Route::get('manage', \App\Livewire\School\Manage::class)->name('school.manage');
+        Route::get('student/{student}/points', \App\Livewire\School\Student\Points::class)->name('school.student.points');
+    });
+
     Route::get('/logout', [\App\Http\Controllers\LogoutController::class, 'logout'])->name('logout');
 });
