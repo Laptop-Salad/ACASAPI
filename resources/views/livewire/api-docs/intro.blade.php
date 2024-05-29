@@ -55,28 +55,28 @@
         <div class="p-5 h-[96vh] overflow-y-scroll">
             <h1 class="font-black text-4xl mb-4">ASMS API Docs</h1>
 
-{{--            <section class="my-10">--}}
-{{--                <h2 class="font-bold text-2xl">Getting Started</h2>--}}
-{{--                <hr class="h-px mb-8 mt-2 bg-pine/50 border-0">--}}
+            <section class="my-10">
+                <h2 class="font-bold text-2xl">Getting Started</h2>
+                <hr class="h-px mb-8 mt-2 bg-pine/50 border-0">
 
-{{--                <x-api-docs.intro />--}}
+                <x-api-docs.intro />
 
-{{--                <x-api-docs.getting-access />--}}
+                <x-api-docs.getting-access />
 
-{{--                <x-api-docs.example-response />--}}
-{{--            </section>--}}
+                <x-api-docs.example-response />
+            </section>
 
             <section class="my-10">
                 <h2 class="font-bold text-2xl">Endpoints</h2>
                 <hr class="h-px mb-8 mt-2 bg-pine/50 border-0">
 
-{{--                <x-api-docs.school />--}}
+                <x-api-docs.school />
 
-{{--                <x-api-docs.students />--}}
+                <x-api-docs.students />
 
-{{--                <x-api-docs.card-entries />--}}
+                <x-api-docs.card-entries />
 
-{{--                <x-api-docs.points />--}}
+                <x-api-docs.points />
 
                 <x-api-docs.custom-reports />
             </section>

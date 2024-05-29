@@ -5,7 +5,11 @@
         Overview
     </x-menus.side-menu-link>
 
+    <x-menus.side-menu-link :href="route('school.card-entries', $school)" icon="fa-solid fa-id-card" :active="$active == 'card-entries'">
+        Card Entries
+    </x-menus.side-menu-link>
+
     <x-menus.side-menu-link :href="route('school.manage', $school)" icon="fa-solid fa-gear" :active="$active == 'manage'">
-        Manage
+        Manage School
     </x-menus.side-menu-link>
 </x-menus.side-menu>

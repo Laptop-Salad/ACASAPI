@@ -2,6 +2,7 @@
 
 namespace App\Livewire\School\Student;
 
+use App\Livewire\Forms\PointsForm;
 use App\Models\School;
 use App\Models\Student;
 use Livewire\Attributes\Locked;
@@ -14,6 +15,24 @@ class Points extends Component
 
     #[Locked]
     public Student $student;
+
+    public PointsForm $form;
+
+    // todo: reuse
+    public function mount() {
+        if ($this->student->school_id !== $this->school->id) {
+            abort(403);
+        }
+    }
+
+    public function savePoint() {
+        // todo: change
+        $this->form->student_id = $this->student->id;
+        $this->form->teacher_id = $this->school->teachers->first()->id;
+        $this->form->save();
+        $this->form->reset();
+        $this->dispatch('$refresh');
+    }
 
     public function render()
     {

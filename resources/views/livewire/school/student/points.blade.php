@@ -5,7 +5,20 @@
         <h1 class="text-4xl font-bold">{{ $student->name }}</h1>
         <p class="mt-2 text-pine/75">From {{$student->house->name}} of {{$school->name}}</p>
 
-            <div class="mt-4">
+        <form wire:submit="savePoint" class="my-3">
+            <x-form.input
+                model="form.points"
+                type="number"
+                class="p-2 md:w-1/3"
+                icon=""
+                label="Points"
+                name="points" required />
+            <div>
+                <x-btn class="ms-2" type="submit">Add</x-btn>
+            </div>
+        </form>
+
+        <div class="mt-4">
             <table class="table-fixed w-full">
                 <thead class="bg-pine text-white">
                 <th class="text-start p-2">Teacher</th>

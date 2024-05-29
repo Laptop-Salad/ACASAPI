@@ -15,9 +15,9 @@
                 <td class="p-2"><x-api-docs.technical>GET</x-api-docs.technical></td>
             </tr>
             <tr>
-                <td class="p-2"><x-api-docs.technical>/card-entries/date/{date}</x-api-docs.technical></td>
+                <td class="p-2"><x-api-docs.technical>student/{student id}/card-entries/date/{date}</x-api-docs.technical></td>
                 <td class="p-2">Get all the card entries for a given date in the format:
-                    <x-api-docs.technical>DDMMYYY</x-api-docs.technical>.</td>
+                    <x-api-docs.technical>DDMMYYYHHMMSS</x-api-docs.technical>.</td>
                 <td class="p-2"><x-api-docs.technical>GET</x-api-docs.technical></td>
             </tr>
             <tr>
