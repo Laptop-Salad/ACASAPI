@@ -30,7 +30,7 @@
             var options = {
               series: [{
                   name: "Student",
-                  data: this.data
+                  data: this.seriesData
               }],
               chart: {
                   height: 350,
