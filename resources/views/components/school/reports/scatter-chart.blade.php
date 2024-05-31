@@ -27,8 +27,6 @@
            let seriesData = this.data.map(
                 item => [makeUTCDate(item[0][0], item[0][1]), item[1]]);
 
-           console.log(seriesData)
-
             var options = {
               series: [{
                   name: "Student",
