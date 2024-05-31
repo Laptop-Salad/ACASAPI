@@ -1,6 +1,8 @@
 <div class="bg-off-white text-pine min-h-screen">
     <x-navigation.navigation />
 
+    @dump($this->school->reports)
+
     <div class="p-5">
         <h1 class="text-4xl font-bold">{{ $report->name }}</h1>
 
