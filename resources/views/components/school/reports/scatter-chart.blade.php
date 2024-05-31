@@ -19,13 +19,15 @@
 
             const makeUTCDate = (hour, minute) => {
                 let dateObj = new Date();
-                dateObj.setHours(8);
-                dateObj.setMinutes(30);
+                dateObj.setHours(hour);
+                dateObj.setMinutes(minute);
                 return dateObj.getTime();x
             };
 
            let seriesData = this.data.map(
                 item => [makeUTCDate(item[0][0], item[0][1]), item[1]]);
+
+           console.log(seriesData)
 
             var options = {
               series: [{
