@@ -6,8 +6,6 @@
 
         @php($report = json_decode(json_encode($report->data)))
 
-        @dump($report)
-
         @if(isset($report->{'stacked-bar-chart'}))
             <x-school.reports.stacked-bar-chart :report="$report->{'stacked-bar-chart'}" />
         @endif
