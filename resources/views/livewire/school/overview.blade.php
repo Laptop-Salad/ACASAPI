@@ -88,6 +88,7 @@
                         <thead class="bg-pine text-white">
                         <th class="text-start p-2">Name</th>
                         <th class="text-start p-2">House</th>
+                        <th class="text-start p-2">Points</th>
                         </thead>
                         <tbody>
                         @foreach($this->students as $student)
@@ -99,6 +100,7 @@
                                     </a>
                                 </td>
                                 <td class="p-2 font-semibold">{{$student->house->name}}</td>
+                                <td class="p-2">{{$student->points->sum('points')}}</td>
                             </tr>
                         @endforeach
                         </tbody>
