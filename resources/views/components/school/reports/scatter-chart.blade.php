@@ -30,12 +30,7 @@
             var options = {
               series: [{
                   name: "Student",
-                  data: [
-                      [makeUTCDate(8, 0), 100],
-                      [makeUTCDate(8, 30), 90],
-                      [makeUTCDate(0, 0), 80],
-                      [makeUTCDate(9, 30), -86]
-                  ]
+                  data: this.data
               }],
               chart: {
                   height: 350,
