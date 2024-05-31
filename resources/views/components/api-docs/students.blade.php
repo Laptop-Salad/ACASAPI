@@ -20,6 +20,16 @@
                 <td class="p-2"><x-api-docs.technical>GET</x-api-docs.technical></td>
             </tr>
             <tr>
+                <td class="p-2"><x-api-docs.technical>/students/{student uuid}/points</x-api-docs.technical></td>
+                <td class="p-2">Get a single students points and history of said points.</td>
+                <td class="p-2"><x-api-docs.technical>GET</x-api-docs.technical></td>
+            </tr>
+            <tr>
+                <td class="p-2"><x-api-docs.technical>/students/{student uuid}/points/total</x-api-docs.technical></td>
+                <td class="p-2">Get a single students total points.</td>
+                <td class="p-2"><x-api-docs.technical>GET</x-api-docs.technical></td>
+            </tr>
+            <tr>
                 <td class="p-2"><x-api-docs.technical>/students/{student uuid}/card-entries</x-api-docs.technical></td>
                 <td class="p-2">
                     Get or upload to a single students card entries. By doing:
