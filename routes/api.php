@@ -13,4 +13,7 @@ Route::middleware(['auth:sanctum', '\App\Http\Middleware\CheckSchoolAccess'])->p
     // ** Card entries
     Route::resource('card-entries', \App\Http\Controllers\Api\CardEntryController::class);
     Route::get('card-entries/date/{date}', [\App\Http\Controllers\Api\CardEntryController::class, 'byDate']);
+
+    // * Reports
+    Route::post('reports', [\App\Http\Controllers\Api\ReportController::class, 'store']);
 });

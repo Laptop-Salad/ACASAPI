@@ -6,63 +6,31 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\StudentResource;
 use App\Models\School;
 use App\Models\Student;
+use App\WithJSONResponse;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Schema;
 
 class StudentController extends Controller
 {
-    public function index(Request $request, School $school)
+    use WithJSONResponse;
+
+    public function index(Request $request, School $school) : JsonResponse
     {
         $students = $school->students;
-        $sort = $request->input('sort');
-        $column = ltrim($sort, '-');
-
-        $custom_sorts = ['performance'];
-
-        // todo: clean this up
-        if (Schema::connection('mysql')->hasColumn("students", $column)) {
-            if ($sort[0] === "-") {
-                $students = $students->sortByDesc($column);
-            } else {
-                $students = $students->sortBy($column);
-            }
-        } else if (in_array($column, $custom_sorts)) {
-            if ($sort[0] === "-") {
-                $students = $students->sortBy(function ($student) {
-                    return $student->points->sum('points');
-                }, SORT_REGULAR, true);
-            } else {
-                $students = $students->sortBy(function ($student) {
-                    return $student->points->sum('points');
-                }, SORT_REGULAR);
-            }
-        } else if (isset($sort)) {
-            return response()->json([
-                'status' => 400,
-                'message' => 'Column does not exist. Please check out our docs!'
-            ]);
-        }
-
         $items = StudentResource::collection($students);
 
-        return response()->json([
-            'status' => 200,
-            'items' => $items
-        ]);
+        return $this->createResponse("ok", $items);
     }
 
-    public function show(School $school, string $id)
+    public function show(School $school, Student $student) : JsonResponse
     {
-        $student = Student::where('school_id', $school->id)->where('id', $id)->first();
+        $student = Student::where('school_id', $school->id)->where('id', $student->id)->first();
 
-        if (!$student) {
-            return response()->json(['error' => 'Student not found'], 404);
+        if (!isset($student)) {
+            return $this->createResponse("not found", null, 'Student not found');
         }
 
         $items = new StudentResource($student);
-        return response()->json([
-            'status' => 200,
-            $items
-        ]);
+        return $this->createResponse("ok", $items);
     }
 }

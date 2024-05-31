@@ -21,6 +21,8 @@ Route::middleware('auth')->group(function () {
         Route::get('manage', \App\Livewire\School\Manage::class)->name('school.manage');
         Route::get('student/{student}/points', \App\Livewire\School\Student\Points::class)->name('school.student.points');
         Route::get('card-entries', \App\Livewire\School\CardEntries::class)->name('school.card-entries');
+        Route::get('reports', \App\Livewire\School\Reports::class)->name('school.reports');
+        Route::get('reports/{report}', \App\Livewire\School\ShowReport::class)->name('school.report');
     });
 
     Route::get('/logout', [\App\Http\Controllers\LogoutController::class, 'logout'])->name('logout');

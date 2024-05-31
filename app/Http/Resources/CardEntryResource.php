@@ -15,7 +15,7 @@ class CardEntryResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'student_id' => $this->student_id,
+            'student_card_number' => $this->student_id,
             'time' => $this->time->toTimeString(),
             'date' => $this->time->toDateString(),
         ];

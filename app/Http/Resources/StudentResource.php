@@ -22,20 +22,20 @@ class StudentResource extends JsonResource
             'points' => [
                 'total' => $this->points->sum('points'),
                 'behaviour' => [
-                    'total' => $this->points->where('type', 'Behaviour')->sum('points'),
+                    'total' => Point::where('student_id', $this->id)->where('type', 'Behaviour')->sum('points'),
                     'history' => PointResource::collection(Point::where('student_id', $this->id)->where('type', 'Behaviour')->get()),
                 ],
                 'grades' => [
-                    'total' => $this->points->where('type', 'Grades')->sum('points'),
-                    'history' => PointResource::collection(Point::where('student_id', $this->id)->where('type', 'Grades')->get()),
+                    'total' => Point::where('student_id', $this->id)->where('type', 'Grade')->sum('points'),
+                    'history' => PointResource::collection(Point::where('student_id', $this->id)->where('type', 'Grade')->get()),
                 ],
                 'attendance' => [
-                    'total' => $this->points->where('type', 'Attendance')->sum('points'),
+                    'total' =>Point::where('student_id', $this->id)->where('type', 'Attendance')->sum('points'),
                     'history' => PointResource::collection(Point::where('student_id', $this->id)->where('type', 'Attendance')->get()),
                 ],
                 'others' => [
-                    'total' => $this->points->where('type', 'Others')->sum('points'),
-                    'history' => PointResource::collection(Point::where('student_id', $this->id)->where('type', 'Others')->get()),
+                    'total' => Point::where('student_id', $this->id)->where('type', 'Other')->sum('points'),
+                    'history' => PointResource::collection(Point::where('student_id', $this->id)->where('type', 'Other')->get()),
                 ],
             ]
         ];

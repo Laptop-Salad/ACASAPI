@@ -26,7 +26,7 @@ class Points extends Component
     }
 
     public function savePoint() {
-        // todo: change
+        // todo: change when we implement user roles
         $this->form->student_id = $this->student->id;
         $this->form->teacher_id = $this->school->teachers->first()->id;
         $this->form->save();

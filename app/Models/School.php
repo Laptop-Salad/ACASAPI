@@ -32,4 +32,8 @@ class School extends Model
     public function students() : HasMany {
         return $this->hasMany(Student::class);
     }
+
+    public function reports() : HasMany {
+        return $this->hasMany(Report::class);
+    }
 }

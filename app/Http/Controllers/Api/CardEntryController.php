@@ -6,17 +6,25 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\CardEntryResource;
 use App\Models\CardEntry;
 use App\Models\School;
+use App\School\CardEntries\Sortable;
+use App\WithJSONResponse;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class CardEntryController extends Controller
 {
-    public function index(School $school) {
-        $items = $school->students->flatMap(function ($student) {
+    use WithJSONResponse;
+    use Sortable;
+
+    public function index(Request $request, School $school) {
+        $students = $this->applySort($request, $school->students);
+
+        $items = $students->flatMap(function ($student) {
             return $student->cardEntries;
         });
 
         $items = CardEntryResource::collection($items);
-        return response()->json($items);
+        return $this->createResponse("ok", $items);
     }
 
     public function show(School $school, CardEntry $card_entry) {
@@ -28,10 +36,7 @@ class CardEntryController extends Controller
         }
 
         $items = new CardEntryResource($card_entry);
-        return response()->json([
-            'status' => 200,
-            $items
-        ]);
+        return $this->createResponse("ok", $items);
     }
 
     public function byDate(School $school, string $date) {
@@ -42,6 +47,6 @@ class CardEntryController extends Controller
         }
 
         $items = CardEntryResource::collection(CardEntry::whereDate('time', $date)->get());
-        return response()->json($items);
+        return $this->createResponse("ok", $items);
     }
 }

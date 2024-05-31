@@ -9,6 +9,10 @@
         Card Entries
     </x-menus.side-menu-link>
 
+    <x-menus.side-menu-link :href="route('school.reports', $school)" icon="fa-solid fa-file-pdf" :active="$active == 'reports'">
+        Reports
+    </x-menus.side-menu-link>
+
     <x-menus.side-menu-link :href="route('school.manage', $school)" icon="fa-solid fa-gear" :active="$active == 'manage'">
         Manage School
     </x-menus.side-menu-link>

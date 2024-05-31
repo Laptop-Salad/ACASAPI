@@ -2,8 +2,9 @@
 
 namespace App\Livewire\Forms;
 
-use App\Models\Department;
 use App\Models\Point;
+use App\PointType;
+use Illuminate\Validation\Rules\Enum;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 
@@ -19,8 +20,8 @@ class PointsForm extends Form
     #[Validate(['required', 'integer'])]
     public $points;
 
-    #[Validate(['required', 'string'])]
-    public $type = "Behaviour";
+    #[Validate(['required', new Enum(PointType::class)])]
+    public $type = 'O';
 
     #[Validate(['required', 'string'])]
     public $comment = "System Points";

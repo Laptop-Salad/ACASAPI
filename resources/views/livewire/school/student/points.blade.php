@@ -13,6 +13,9 @@
                 icon=""
                 label="Points"
                 name="points" required />
+
+            @error('form.points') <span class="error">{{ $message }}</span> @enderror
+
             <div>
                 <x-btn class="ms-2" type="submit">Add</x-btn>
             </div>
@@ -30,7 +33,7 @@
                 @foreach($student->points->sortBy('date') as $point)
                     <tr class="border-b-2 border-pine/50">
                         <td>{{$point->teacher->name}}</td>
-                        <td>{{$point->type}}</td>
+                        <td>{{\App\PointType::from($point->type)->display()}}</td>
                         <td>{{$point->points}}</td>
                         <td>{{$point->comment}}</td>
                     </tr>

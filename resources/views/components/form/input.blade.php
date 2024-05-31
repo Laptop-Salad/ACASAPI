@@ -4,7 +4,9 @@
     'model',
     'required' => false,
     'type' => 'text',
-    'icon' => ''
+    'icon' => '',
+    'min' => null,
+    'max' => null,
 ])
 
 <div {{ $attributes }}>
@@ -17,6 +19,8 @@
 
     <div class="border-2 border-pine p-2 rounded-b-md">
         <input
+            @if (isset($min)) min="{{$min}}" @endif
+            @if (isset($max)) max="{{$max}}" @endif
             autocomplete="off"
             class="bg-transparent outline-none"
             type="{{$type}}"

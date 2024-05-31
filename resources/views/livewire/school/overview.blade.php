@@ -20,7 +20,7 @@
                 Teachers
             </x-tab>
             <x-tab wire:click="changeTab('students')" this_tab="students" :current_tab="$this->current_tab">
-                {{ $school->houses->count() }}
+                {{ $school->students->count() }}
                 Students
             </x-tab>
         </x-tabs>
