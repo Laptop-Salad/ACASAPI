@@ -42,6 +42,10 @@
                 @endforeach
                 </tbody>
             </table>
+
+            <div class="mt-4">
+                {{$this->card_entries->links()}}
+            </div>
         </div>
     </div>
 </div>

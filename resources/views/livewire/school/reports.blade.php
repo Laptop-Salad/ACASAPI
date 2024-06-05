@@ -11,6 +11,7 @@
                 <thead class="bg-pine text-white">
                 <th class="text-start p-2">Name</th>
                 <th class="text-start p-2">Created At</th>
+                <th class="p-2"></th>
                 </thead>
                 <tbody>
                 @foreach($this->reports as $report)
@@ -23,10 +24,20 @@
                             </a>
                         </td>
                         <td class="p-2 font-semibold">{{ isset($report->created_at) ? $report->created_at->toDateString() : '' }}</td>
+                        <td>
+                            <x-btn wire:confirm="Are you sure you want to delete this report?" wire:click="deleteReport({{$report->id}})">
+                                <i class="fa-solid fa-trash me-2"></i>
+                                Delete
+                            </x-btn>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
+
+            <div class="mt-4">
+                {{$this->reports->links()}}
+            </div>
         </div>
     </div>
 </div>

@@ -6,13 +6,16 @@
 
         @php($report = json_decode(json_encode($report->data)))
 
-        @if(isset($report->{'stacked-bar-chart'}))
-            <x-school.reports.stacked-bar-chart :report="$report->{'stacked-bar-chart'}" />
-        @endif
-
-        @if(isset($report->{'scatter-chart'}))
-            <x-school.reports.scatter-chart :report="$report->{'scatter-chart'}" />
-        @endif
+        @foreach($report as $key => $section)
+            @switch($key)
+                @case('stacked-bar-chart')
+                    <x-school.reports.stacked-bar-chart :report="$report->{'stacked-bar-chart'}" />
+                    @break
+                @case('scatter-chart')
+                    <x-school.reports.scatter-chart :report="$report->{'scatter-chart'}" />
+                    @break
+            @endswitch
+        @endforeach
     </div>
 </div>
 

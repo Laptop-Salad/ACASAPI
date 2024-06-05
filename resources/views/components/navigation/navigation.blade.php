@@ -1,6 +1,10 @@
 <header class="hidden md:grid grid-cols-2 items-center gap-2 p-5">
 
-    <a href="{{ url('') }}" class="font-bold text-2xl">ASMS</a>
+    @auth
+        <a href="{{ url('/dashboard') }}" class="font-bold text-2xl">ASMS</a>
+    @else
+        <a href="{{ url('') }}" class="font-bold text-2xl">ASMS</a>
+    @endauth
 
     @if (Route::has('login'))
         <nav class="-mx-3 flex items-center justify-end">

@@ -16,7 +16,7 @@ class CardEntries extends Component
     public function getCardEntriesProperty() {
         return CardEntry::whereHas('student', function (Builder $q) {
             $q->where('school_id', $this->school->id);
-        })->orderByDesc('time')->get();
+        })->orderByDesc('time')->paginate(15);
     }
 
     public function deleteEntry(CardEntry $card_entry) {
