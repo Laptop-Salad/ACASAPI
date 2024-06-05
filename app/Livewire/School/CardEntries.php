@@ -24,7 +24,8 @@ class CardEntries extends Component
     }
 
     public function deleteAll() {
-        foreach ($this->card_entries as $card_entry) {
+        $card_entries = CardEntry::where('school_id', $this->school->id)->get();
+        foreach ($card_entries as $card_entry) {
             $card_entry->delete();
         }
 
