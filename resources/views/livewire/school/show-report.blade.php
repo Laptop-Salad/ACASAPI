@@ -5,7 +5,6 @@
         <h1 class="text-4xl font-bold">{{ $report->name }}</h1>
 
         @php($report = json_decode(json_encode($report->data)))
-        @dump($report)
 
         @foreach($report as $key => $section)
             @switch($key)
