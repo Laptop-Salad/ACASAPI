@@ -29,7 +29,6 @@ class CheckSchoolAccess
             ->where('school_id', $school->id);
 
         $access = $access->first();
-        dump($access);
 
         if (!$access) {
             return $this->createResponse("forbidden");
