@@ -32,6 +32,8 @@ class CheckSchoolAccess
             return $this->createResponse("forbidden");
         }
 
+        dump($access);
+
         return $next($request);
     }
 }

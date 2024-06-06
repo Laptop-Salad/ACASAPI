@@ -59,7 +59,7 @@ class StudentCardEntryController extends Controller
         if ($student->school_id !== $school->id) {
             return response()->json([
                 'status' => 403,
-            ]);
+            ], 403);
         }
 
         try {
@@ -71,9 +71,8 @@ class StudentCardEntryController extends Controller
         // Ensure a card entry does not exist for today
         if (CardEntry::whereDate('time', $date)->where('student_id', $student->id)->exists()) {
             return response()->json([
-                'status' => 403,
                 'message' => "Card Entry already exists for this day",
-            ], 200);
+            ], 403);
         }
 
         $card_entry = CardEntry::create([
@@ -82,9 +81,8 @@ class StudentCardEntryController extends Controller
         ]);
 
         return response()->json([
-            'status' => 201,
             'message' => "Card Entry Created!",
             'card_entry' => $card_entry
-        ], 200);
+        ], 201);
     }
 }
