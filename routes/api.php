@@ -2,9 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['auth:sanctum', '\App\Http\Middleware\CheckSchoolAccess'])->prefix("schools/{school}")->group( function () {
+//middleware(['auth:sanctum', '\App\Http\Middleware\CheckSchoolAccess'])
+
+Route::prefix("schools/{school}")->group( function () {
     // ** Students
-    
+
     // todo: route group and middleware to ensure student belongs to school
     Route::get('students/{student}/points', [\App\Http\Controllers\Api\StudentPointController::class, 'index']);
     Route::get('students/{student}/points/total', [\App\Http\Controllers\Api\StudentPointController::class, 'total']);
