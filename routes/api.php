@@ -2,9 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-//middleware(['auth:sanctum', '\App\Http\Middleware\CheckSchoolAccess'])
-
-Route::prefix("schools/{school}")->group( function () {
+Route::middleware(['auth:sanctum', '\App\Http\Middleware\CheckSchoolAccess'])->prefix("schools/{school}")->group( function () {
     // ** Students
 
     // todo: route group and middleware to ensure student belongs to school
