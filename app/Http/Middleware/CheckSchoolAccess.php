@@ -26,13 +26,11 @@ class CheckSchoolAccess
         }
 
         $access = SchoolUser::where('user_id', $user->id)
-            ->where('school_id', $school->id);
+            ->where('school_id', $school->id)->get();
 
         if (!isset($access)) {
             return $this->createResponse("forbidden");
         }
-
-        dump($access);
 
         return $next($request);
     }
