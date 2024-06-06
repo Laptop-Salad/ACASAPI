@@ -31,8 +31,8 @@ class Student extends Model
         return $this->hasMany(Point::class);
     }
 
-    public function cardEntries(): hasOne
+    public function cardEntries(): hasMany
     {
-        return $this->hasOne(CardEntry::class);
+        return $this->hasMany(CardEntry::class);
     }
 }
