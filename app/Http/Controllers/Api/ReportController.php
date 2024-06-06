@@ -64,7 +64,7 @@ class ReportController
         Report::create([
             'school_id' => $school->id,
             'name' => $name,
-            'data' => $data,
+            'data' => $data[0],
             'custom' => true,
         ]);
 
